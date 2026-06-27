@@ -214,8 +214,11 @@
     #difference { padding: var(--sp); background: var(--black); color: #fff; position: relative; overflow: hidden; }
     #difference::before { content: ''; position: absolute; top: -30%; right: -8%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(196,30,30,.1) 0%, transparent 70%); pointer-events: none; }
     .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .diff-img { border-radius: var(--radius-md); overflow: hidden; min-height: 460px; box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 24px 60px rgba(0,0,0,0.5); }
-    .diff-img img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 460px; }
+    .diff-img { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; }
+    .diff-img-cell { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; }
+    .diff-img-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .diff-img-cell:hover img { transform: scale(1.04); }
+    .diff-img-cell.wide { grid-column: span 2; aspect-ratio: 16/7; }
     .diff-content h2 { color: #fff; margin-bottom: 24px; }
     .diff-content h2 span { color: var(--red); }
     .diff-content p { color: rgba(255,255,255,.58); margin-bottom: 14px; }
@@ -243,9 +246,12 @@
     #team { padding: var(--sp); }
     .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
     .team-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .team-photo { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 3/4; }
-    .team-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .team-photo.tall { grid-row: span 2; aspect-ratio: auto; }
+    .team-photo { border-radius: var(--radius-md); overflow: hidden; }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .team-photo:hover img { transform: scale(1.04); }
+    .team-photo.tall { grid-row: span 2; }
+    .team-photo.tall img { aspect-ratio: auto; min-height: 420px; }
+    .team-photo:not(.tall) img { aspect-ratio: 4/3; }
     .team-content h2 { margin-bottom: 16px; }
     .team-content h2 span { color: var(--red); }
     .team-content p { margin-bottom: 14px; }
@@ -837,7 +843,15 @@
   <div class="container">
     <div class="diff-grid" style="padding:var(--sp) 0">
       <div class="diff-img reveal">
-        <img src="diff-paint-wall.jpg" alt="Rows of Spies Hecker Permacron paint canisters used for precision color-matching at Precision PBS Miami" loading="lazy" width="580" height="435">
+        <div class="diff-img-cell wide">
+          <img src="diff-paint-wall.jpg" alt="Spies Hecker Permacron premium paint canisters — color-matching system at Precision PBS Miami" loading="lazy" width="800" height="350">
+        </div>
+        <div class="diff-img-cell">
+          <img src="svc-paint.jpg" alt="Precision painter applying automotive paint in professional spray booth" loading="lazy" width="400" height="300">
+        </div>
+        <div class="diff-img-cell">
+          <img src="process-refinish.jpg" alt="Paint mixing and color preparation at Precision Paint & Body Shop" loading="lazy" width="400" height="300">
+        </div>
       </div>
       <div class="diff-content reveal">
         <div class="eyebrow eyebrow--light">We Are</div>
@@ -938,13 +952,13 @@
     <div class="team-grid">
       <div class="team-photos reveal">
         <div class="team-photo tall">
-          <img src="convenience-team.jpg" alt="Precision Paint & Body Shop team members collaborating on a vehicle restoration" loading="lazy" width="380" height="760">
+          <img src="svc-bumper.jpg" alt="Precision technician repairing a red sports car bumper — expert collision restoration" loading="lazy" width="400" height="640">
         </div>
         <div class="team-photo">
-          <img src="about-team.jpg" alt="Service manager at Precision Paint & Body Shop front desk" loading="lazy" width="280" height="280">
+          <img src="svc-dent-repair.jpg" alt="Technician using precision tools for auto dent repair on a vehicle body panel" loading="lazy" width="380" height="285">
         </div>
         <div class="team-photo">
-          <img src="about-office.jpg" alt="Customer service at Precision Paint & Body Shop Miami" loading="lazy" width="280" height="280">
+          <img src="gallery-4.jpg" alt="Senior Precision technician buffing a luxury vehicle to a showroom finish" loading="lazy" width="380" height="285">
         </div>
       </div>
       <div class="team-content reveal">
