@@ -62,8 +62,8 @@ strong{color:var(--ink);font-weight:600}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{outline:3px solid var(--red);outline-offset:3px}
 .btn svg{flex-shrink:0}
-.btn-red{background:var(--red);color:#fff}
-.btn-red:hover,.btn-red:active{background:var(--red-2)}
+.btn-red{background:var(--red);color:#fff!important}
+.btn-red:hover,.btn-red:active{background:var(--red-2);color:#fff!important}
 .btn-ghost{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.22)}
 .btn-ghost:hover,.btn-ghost:active{background:var(--ink);color:#fff;border-color:var(--ink)}
 .btn-ghost-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
@@ -87,16 +87,16 @@ strong{color:var(--ink);font-weight:600}
 .logo-wrap{display:flex;align-items:center;flex-shrink:0}
 .logo-wrap img{height:48px;width:auto;object-fit:contain}
 .nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{font-family:var(--ff-b);font-weight:500;font-size:.87rem;color:var(--muted);transition:color .15s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--red);transition:width .2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after{width:100%}
+.nav-links a:not(.btn){font-family:var(--ff-b);font-weight:500;font-size:.87rem;color:var(--muted);transition:color .15s;position:relative}
+.nav-links a:not(.btn)::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--red);transition:width .2s}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.nav-links a:not(.btn):hover::after{width:100%}
 .hmbg{display:none;background:none;border:none;color:var(--ink);padding:6px;line-height:1}
 .hmbg:focus-visible{outline:2px solid var(--red);border-radius:4px}
 #mob{display:none;border-top:1px solid var(--line);background:#fff}
 #mob.on{display:block}
 .mob-links{display:flex;flex-direction:column}
-.mob-links a{font-weight:500;font-size:1rem;color:var(--ink);padding:13px 0;border-bottom:1px solid var(--line);display:block;-webkit-tap-highlight-color:transparent}
+.mob-links a:not(.btn){font-weight:500;font-size:1rem;color:var(--ink);padding:13px 0;border-bottom:1px solid var(--line);display:block;-webkit-tap-highlight-color:transparent}
 .mob-links a:active{color:var(--red)}
 .mob-cta{padding:16px 0;display:flex;flex-direction:column;gap:10px}
 
